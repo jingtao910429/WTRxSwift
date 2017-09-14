@@ -21,6 +21,25 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let longPress = UILongPressGestureRecognizer()
+        longPress.rx.event.subscribe(onNext: { [weak self] (tap) in
+            
+            guard let `self` = self else {
+                return
+            }
+            guard let text = self.showLabel.text else {
+                return
+            }
+            guard let number = Int(text) else {
+                return
+            }
+            self.showLabel.text = String(number + 1)
+            
+        }, onError: { (error) in
+            print(error)
+        }).addDisposableTo(disposeBag)
+        self.tapButton.addGestureRecognizer(longPress)
+        
         tapButton.rx.tap.subscribe({ [weak self] _ in
             guard let `self` = self else {
                 return
