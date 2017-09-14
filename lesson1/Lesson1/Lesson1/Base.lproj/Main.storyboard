@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,31 +31,41 @@
                                 <state key="normal" title="tap"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lch-sD-oZq">
-                                <rect key="frame" x="143" y="244" width="88" height="21"/>
+                                <rect key="frame" x="16" y="244" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxv-cM-zEc">
-                                <rect key="frame" x="143" y="299" width="88" height="30"/>
+                                <rect key="frame" x="16" y="299" width="343" height="30"/>
                                 <state key="normal" title="reset"/>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="R0F-hL-Ubg">
+                                <rect key="frame" x="128" y="355" width="118" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="114" id="gAM-Qy-eTG"/>
+                                    <constraint firstAttribute="height" constant="30" id="wpb-4q-i6J"/>
+                                </constraints>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="qxv-cM-zEc" firstAttribute="leading" secondItem="Lch-sD-oZq" secondAttribute="leading" id="4jb-Sk-vqh"/>
-                            <constraint firstItem="qxv-cM-zEc" firstAttribute="trailing" secondItem="Lch-sD-oZq" secondAttribute="trailing" id="67U-Xx-brJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lch-sD-oZq" secondAttribute="trailing" id="3Hw-RD-Kf3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qxv-cM-zEc" secondAttribute="trailing" id="C5f-EZ-L0A"/>
+                            <constraint firstItem="qxv-cM-zEc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="EvG-b2-nCh"/>
+                            <constraint firstItem="Lch-sD-oZq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Jmg-F9-99S"/>
                             <constraint firstItem="8ge-EA-e8h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JwB-lN-LHx"/>
                             <constraint firstItem="Lch-sD-oZq" firstAttribute="top" secondItem="8ge-EA-e8h" secondAttribute="bottom" constant="33" id="PDM-hl-D6H"/>
                             <constraint firstItem="qxv-cM-zEc" firstAttribute="top" secondItem="Lch-sD-oZq" secondAttribute="bottom" constant="34" id="PUn-hW-OCu"/>
-                            <constraint firstItem="Lch-sD-oZq" firstAttribute="trailing" secondItem="8ge-EA-e8h" secondAttribute="trailing" id="REJ-6U-eqn"/>
-                            <constraint firstItem="Lch-sD-oZq" firstAttribute="leading" secondItem="8ge-EA-e8h" secondAttribute="leading" id="gcz-Xj-rCh"/>
+                            <constraint firstItem="R0F-hL-Ubg" firstAttribute="top" secondItem="qxv-cM-zEc" secondAttribute="bottom" constant="26" id="jiH-h1-CL3"/>
+                            <constraint firstItem="R0F-hL-Ubg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kmm-dU-mcl"/>
                             <constraint firstItem="8ge-EA-e8h" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="161" id="raK-X8-the"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="resetButton" destination="qxv-cM-zEc" id="S6G-ot-BXG"/>
                         <outlet property="showLabel" destination="Lch-sD-oZq" id="WzA-fJ-pyH"/>
+                        <outlet property="slider" destination="R0F-hL-Ubg" id="9v0-oZ-6Mx"/>
                         <outlet property="tapButton" destination="8ge-EA-e8h" id="NyT-aX-y47"/>
                     </connections>
                 </viewController>

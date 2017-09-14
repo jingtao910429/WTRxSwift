@@ -15,12 +15,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var tapButton: UIButton!
     @IBOutlet weak var showLabel: UILabel!
     @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var slider: UISlider!
     
     fileprivate var disposeBag: DisposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //添加手势
         let longPress = UILongPressGestureRecognizer()
         longPress.rx.event.subscribe(onNext: { [weak self] (tap) in
             
@@ -40,6 +42,7 @@ class ViewController: UIViewController {
         }).addDisposableTo(disposeBag)
         self.tapButton.addGestureRecognizer(longPress)
         
+        //tapAction
         tapButton.rx.tap.subscribe({ [weak self] _ in
             guard let `self` = self else {
                 return
@@ -59,6 +62,15 @@ class ViewController: UIViewController {
                 return
             }
             self.showLabel.text = "0"
+        }).addDisposableTo(disposeBag)
+        
+        
+        //Slider---value
+        slider.rx.value.subscribe({ [weak self] value in
+            guard let `self` = self else {
+                return
+            }
+            self.showLabel.text = "\(value.element!)"
         }).addDisposableTo(disposeBag)
     }
 
