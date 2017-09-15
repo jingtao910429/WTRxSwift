@@ -47,6 +47,23 @@
                                     <constraint firstAttribute="height" constant="30" id="wpb-4q-i6J"/>
                                 </constraints>
                             </slider>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qV0-BJ-IhD">
+                                <rect key="frame" x="16" y="440" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="MzZ-d0-VHy"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGA-46-sbC">
+                                <rect key="frame" x="114" y="97" width="146" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Dru-z0-2GG"/>
+                                    <constraint firstAttribute="width" constant="146" id="lvE-2F-QjD"/>
+                                </constraints>
+                                <state key="normal" title="showClick"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -55,18 +72,25 @@
                             <constraint firstItem="qxv-cM-zEc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="EvG-b2-nCh"/>
                             <constraint firstItem="Lch-sD-oZq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Jmg-F9-99S"/>
                             <constraint firstItem="8ge-EA-e8h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JwB-lN-LHx"/>
+                            <constraint firstItem="qV0-BJ-IhD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="KQS-4x-23b"/>
                             <constraint firstItem="Lch-sD-oZq" firstAttribute="top" secondItem="8ge-EA-e8h" secondAttribute="bottom" constant="33" id="PDM-hl-D6H"/>
                             <constraint firstItem="qxv-cM-zEc" firstAttribute="top" secondItem="Lch-sD-oZq" secondAttribute="bottom" constant="34" id="PUn-hW-OCu"/>
+                            <constraint firstItem="MGA-46-sbC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="77" id="Vm2-2w-VpH"/>
+                            <constraint firstItem="MGA-46-sbC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="X3S-eR-Aru"/>
                             <constraint firstItem="R0F-hL-Ubg" firstAttribute="top" secondItem="qxv-cM-zEc" secondAttribute="bottom" constant="26" id="jiH-h1-CL3"/>
                             <constraint firstItem="R0F-hL-Ubg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kmm-dU-mcl"/>
+                            <constraint firstItem="qV0-BJ-IhD" firstAttribute="top" secondItem="R0F-hL-Ubg" secondAttribute="bottom" constant="55" id="neW-A9-onX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qV0-BJ-IhD" secondAttribute="trailing" id="qGI-GM-eqf"/>
                             <constraint firstItem="8ge-EA-e8h" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="161" id="raK-X8-the"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bindShowLabelButton" destination="MGA-46-sbC" id="tLI-5h-8vV"/>
                         <outlet property="resetButton" destination="qxv-cM-zEc" id="S6G-ot-BXG"/>
                         <outlet property="showLabel" destination="Lch-sD-oZq" id="WzA-fJ-pyH"/>
                         <outlet property="slider" destination="R0F-hL-Ubg" id="9v0-oZ-6Mx"/>
                         <outlet property="tapButton" destination="8ge-EA-e8h" id="NyT-aX-y47"/>
+                        <outlet property="textField" destination="qV0-BJ-IhD" id="1r4-l7-t3U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
