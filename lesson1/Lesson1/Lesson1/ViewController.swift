@@ -94,6 +94,18 @@ class ViewController: UIViewController {
             })
             .bind(to: self.showLabel.rx.text)
             .addDisposableTo(disposeBag)
+        
+        //SwipeGesture
+        let swipe = UISwipeGestureRecognizer()
+        swipe.rx.event.subscribe(onNext: { [weak self] tap in
+            guard let `self` = self else {
+                return
+            }
+            self.view.endEditing(true)
+        }, onError: { (error) in
+            print(error)
+        }).addDisposableTo(disposeBag)
+        view.addGestureRecognizer(swipe)
     }
 
     override func didReceiveMemoryWarning() {
