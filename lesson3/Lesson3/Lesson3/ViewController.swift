@@ -38,10 +38,19 @@ class ViewController: UIViewController {
             "Water"
         ]
         
+        //RxTableView 页面展示逃逸闭包写法
+        /*
+        items.asObservable().bind(to: tableView.rx.items(cellIdentifier: "Cell", cellType: UITableViewCell.self)) { (row, element, cell) in
+            cell.textLabel?.text = element
+        }.addDisposableTo(self.disposeBag)*/
+        
+        //RxTableView 页面展示
         items.asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: "Cell", cellType: UITableViewCell.self), curriedArgument: { (row, element, cell) in
                 cell.textLabel?.text = element
             }).disposed(by: disposeBag)
+        
+        //RxTableView 下拉刷新
         refreshControl.rx
             .controlEvent(.valueChanged)
             .subscribe(onNext: { _ in
@@ -49,6 +58,19 @@ class ViewController: UIViewController {
                 self.refreshControl.endRefreshing()
             }).addDisposableTo(disposeBag)
         tableView.addSubview(refreshControl)
+        
+        
+        //RxTableView 编辑相关
+        tableView.isEditing = true
+        //删除
+        tableView.rx.itemDeleted.subscribe(onNext: { (index) in
+            items.value.remove(at: index.row)
+        }).addDisposableTo(self.disposeBag)
+        //移动
+        tableView.rx.itemMoved.subscribe(onNext: { (fromIndex, desIndex) in
+            let item = items.value.remove(at: fromIndex.row)
+            items.value.insert(item, at: desIndex.row)
+        }).addDisposableTo(self.disposeBag)
     }
 
     override func didReceiveMemoryWarning() {
